@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+	<h:form id="master2">
+		<p:dataTable emptyMessage="no stock found!"
+		value="#{stockBean.allstock}" 
+		var="g" border="1"
+	    paginator="true"
+		paginatorPosition="bottom" 
+		selectionMode="single"
+		selection="#{stockBean.stock}" 
+		rowKey="#{g.id_Stock}" 
+		
+		widgetVar="stocktabw">
+		<p:ajax event="rowSelect" listener="#{stockBean.onRowSelect}" update=":hela" />
+		<p:ajax event="filter" listener="#{stockBean.OnFilter}" update=":hela" />
+		<f:facet name="header">All Stocks</f:facet>
+
+    
+		
+            
+ 
+			
+			<p:column filterBy="#{g.materiel}" filterMatchMode="startsWith">
+				<f:facet name="header">Materiel</f:facet>
+				<h:outputText value="#{g.materiel}" />
+			</p:column>
+			<p:column filterBy="#{g.nature}" filterMatchMode="startsWith">
+				<f:facet name="header">Nature</f:facet>
+				<h:outputText value="#{g.nature}" />
+			</p:column>
+			<p:column filterBy="#{g.prix}" filterMatchMode="startsWith">
+				<f:facet name="header">Prix</f:facet>
+				<h:outputText value="#{g.prix}" />
+			</p:column>
+			
+
+
+
+		</p:dataTable>
+		
+
+		<h:form>
+			<h:commandButton value="New" action="#{stockBean.doNew()}" update=":hela" />
+			 <h:commandButton>
+        
+    </h:commandButton>
+ 
+    
+		
+		</h:form>
+	</h:form>
+</ui:composition>

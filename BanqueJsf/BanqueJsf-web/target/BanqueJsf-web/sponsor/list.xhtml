@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+                	
+		
+			<h:form id="master">
+				<p:dataTable emptyMessage="no sponsor found!"
+							 value="#{sponsorBean.listsponsors}"
+				             var="cat"
+				             rows="4"		             
+				             paginator="true"
+				             paginatorPosition="bottom"
+				             filteredValue="#{sponsorBean.filtredSponsor}"
+				             selectionMode="single"
+				             selection="#{sponsorBean.spons}"
+				             rowKey="#{cat.id_spons}"
+				             widgetVar="catTabW">
+				    
+				    <p:ajax event="rowSelect" listener="#{sponsorBean.onRowSelect}" update=":details"/>
+				<p:ajax event="filter" listener="#{sponsorBean.onFilter()}" update=":details"/>
+				             
+					<f:facet name="header">
+							<h:outputText value="all travels" />
+					</f:facet>
+					
+				<p:column headerText="id" filterBy="#{cat.id_spons}" filterMatchMode="contains">					
+						<h:outputText value="#{cat.id_spons}" />
+					</p:column>
+					
+					<p:column headerText="name" filterBy="#{cat.nom}" filterMatchMode="contains">					
+						<h:outputText value="#{cat.nom}" />
+					</p:column>
+					<p:column headerText="description" filterBy="#{cat.description}" filterMatchMode="contains">					
+						<h:outputText value="#{cat.description}" />
+					</p:column>
+					
+					
+					
+					
+				</p:dataTable>
+				<p:commandButton icon="ui-icon-circle-plus" actionListener="#{sponsorBean.doNew()}" value="new" update=":master :details"/>
+			</h:form>
+			
+</ui:composition>

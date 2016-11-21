@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+         <h:form >
+		<p:panelGrid columns="2">
+			
+			<h:outputText value="From" />
+			<h:selectOneMenu value="#{conBean.from}">
+		<f:selectItems value="#{conBean.dFrom}" />
+			</h:selectOneMenu>
+			<h:outputText value="To" />
+	<h:selectOneMenu value="#{conBean.to}">
+		<f:selectItems value="#{conBean.dTo}" />
+			</h:selectOneMenu>
+					<h:outputText value="sold" />
+			<p:inputText value="#{conBean.montant}" />
+
+			<h:commandButton value="Convert" action="#{conBean.doConv()}" />
+						
+		</p:panelGrid>
+	</h:form>
+                	<p:dataTable value="#{conBean.result}"  border="1">
+		<f:facet name="header">resultat de convertion</f:facet>
+		<p:column>
+			<f:facet name="header">Montant</f:facet>
+			<h:outputText value="#{conBean.result}" />
+		</p:column>
+		</p:dataTable>
+	
+
+</ui:composition>

@@ -1,0 +1,142 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	>
+<h:head> 
+
+<script src="../../resources/js/echart/echarts-all.js" />
+	<script src="../../resources/js/echart/green.js" />
+<script src="../../resources/js/nprogress.js"></script>
+	
+	<script src="../../resources/js/jquery.min.js" />
+	<script src="../../resources/js/jquery.validate.js" />
+	<script src="../../resources/js/jquery.validate.min.js" />
+	<script src="../../resources/js/jquery.validate.unobtrusive.js" />
+	<script src="../../resources/js/jquery.validate.unobtrusive.min.js" />
+	<script src="../../resources/js/jquery.validate-vsdoc.js" />
+	<script src="../../resources/js/jquery-1.10.2.intellisense.js" />
+	<script src="../../resources/js/jquery-1.10.2.js" />
+	<script src="../../resources/js/jquery-1.10.2.min.js" />
+	
+	
+		
+<!-- 	<link rel="stylesheet" type="text/css" href="../../resources/css/maps/jquery-jvectormap-2.0.1.css" /> -->
+<!-- 	<link href="../../resources/css/icheck/flat/green.css" rel="stylesheet" /> -->
+<!-- 	<link href="../../resources/css/floatexamples.css" rel="stylesheet" -->
+
+<link href="../../resources/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../../resources/css/nprogress.css" rel="stylesheet" />
+<link href="../../resources/css/normalize.css" rel="stylesheet" />
+<!-- 	<link href="assets/t2/fonts/css/font-awesome.min.css" rel="stylesheet" /> -->
+	<link href="../../resources/css/animate.min.css" rel="stylesheet" />
+<!-- 		type="text/css" /> -->
+	
+
+	<script>
+		NProgress.start();
+	</script>
+</h:head>
+<body>	
+<div class="count">#{ChartBean.percentageMontantCredit.get("credits")}</div>
+
+<div class="content">
+
+						<div id="echart_pie1" style="height: 350px;"></div>
+						
+</div>
+
+	<script>
+            // Shares Types Pie Chart
+
+            var myChart = echarts.init(document.getElementById('echart_pie1'), theme);
+            myChart.setOption({
+                tooltip: {
+                    trigger: 'credit',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    //orient: 'vertical',
+                    //x: 'left',
+                    x: 'center',
+                    y: 'bottom',
+                    data: ["credit entre 1000 et 3000", "credit entre 4000 et 6000"]
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        magicType: {
+                            show: true,
+                            type: ['pie', 'funnel'],
+                            option: {
+                                funnel: {
+                                    x: '25%',
+                                    width: '50%',
+                                    funnelAlign: 'left',
+                                    max: 1548
+                                }
+                            }
+                        },
+                        restore: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                calculable: false,
+                series: [
+                    {
+                        name: 'credit',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '48%'], //left,top
+                        data: [
+                            {
+                                value: #{chartBean.percentageMontantCredit.get("a1")},
+                                name: 'credit entre 1000 et 3000'
+                            },
+                            {
+                                value: #{chartBean.percentageMontantCredit.get("a2")},
+                                name: 'credit entre 4000 et 6000'
+                            }
+                            
+                        ]
+                    }
+                ]
+            });
+
+
+            var dataStyle = {
+                normal: {
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                }
+            };
+            var placeHolderStyle = {
+                normal: {
+                    color: 'rgba(0,0,0,0)',
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                emphasis: {
+                    color: 'rgba(0,0,0,0)'
+                }
+            };
+        </script>
+        <script>
+		NProgress.done();
+	</script>
+</body>
+</html>

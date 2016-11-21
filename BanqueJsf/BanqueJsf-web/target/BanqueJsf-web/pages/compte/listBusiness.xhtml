@@ -1,0 +1,57 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                >
+    
+           	
+                		<h:dataTable value="#{bcptBean.listCompteb}" var="c" border="1">
+		<f:facet name="header">ALL Comptes</f:facet>
+		<h:column>
+			<f:facet name="header">#</f:facet>
+			<h:outputText value="#{c.idCompte}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">rib</f:facet>
+			<h:outputText value="#{c.RIB}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">succursale</f:facet>
+			<h:outputText value="#{c.succursale}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">solde</f:facet>
+			<h:outputText value="#{c.solde}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">action</f:facet>
+					<h:form>
+				<h:commandButton value="select">
+					<f:setPropertyActionListener target="#{bcptBean.formDisplayed}"
+						value="true" />
+					<f:setPropertyActionListener target="#{bcptBean.cpt}"
+						value="#{c}" />
+
+				</h:commandButton>
+			</h:form>
+		</h:column>
+	</h:dataTable>
+  	
+
+	<h:form rendered="#{bcptBean.formDisplayed}">
+		<h:panelGrid columns="2">
+			<h:outputText value="id" />
+			<h:inputText value="#{bcptBean.cpt.idCompte}" />
+			<h:outputText value="RIB" />
+			<h:inputText value="#{bcptBean.cpt.RIB}" />
+			<h:commandButton value="cancel" action="#{bcptBean.doCancel()}" />
+			<h:panelGrid columns="2">
+				<h:commandButton value="remove"
+					action="#{bcptBean.doRemove()}" />
+				<h:commandButton value="save"
+					action="#{bcptBean.doSaveOrUpdate()}" />
+			</h:panelGrid>
+		</h:panelGrid>
+	</h:form>                	
+
+</ui:composition>

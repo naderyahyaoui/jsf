@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+
+	<p:panel id="hela" header="stock details"
+		visible="#{stockBean.formDisplayed}">
+		<h:form id="details_form" rendered="#{stockBean.formDisplayed}">
+			<h:panelGrid columns="3">
+
+				<h:panelGrid columns="2">
+				    <h:outputText value="id" />
+					<p:inputText value="#{stockBean.stock.id_Stock}" />
+					
+					<h:outputText value="materiel" />
+					<p:inputText value="#{stockBean.stock.materiel}" />
+
+					<h:outputText value="nature" />
+					<p:inputText value="#{stockBean.stock.nature}" />
+
+					<h:outputText value="prix" />
+					<p:inputText value="#{stockBean.stock.prix}" />
+                    
+
+
+					<p:commandButton actionListener="#{stockBean.doCancel()}"
+						value="cancel" update=":hela" />
+
+<p:commandButton actionListener="#{stockBean.doRemove()}" value="delete" update=":master2 :hela" oncomplete="PF('stocktabw').filter();" />
+	<p:commandButton actionListener="#{stockBean.doSave()}"
+						value="save" update=":master2 :hela" oncomplete="PF('stocktabw').filter();" />
+
+    
+				</h:panelGrid>
+				
+
+			</h:panelGrid>
+		</h:form>
+	</p:panel>
+
+</ui:composition>

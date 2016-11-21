@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+               >
+              
+         <h:form >
+		<h:panelGrid columns="2">
+			
+			<h:outputText value="From" />
+			<h:inputText value="#{ecptBean.v.fromCompteRib}" />
+			<h:outputText value="To" />
+			<h:inputText value="#{ecptBean.v.toCompteRib}" />
+			<h:outputText value="sold" />
+			<h:inputText value="#{ecptBean.v.solde}" />
+			<h:commandButton value="add" action="#{virementBean.virement()}" />
+			<h:commandButton value="finish" action="#{ecptBean.finish()}" />
+			<h:selectOneMenu value="#{virementBean.v.devise}">
+		<f:selectItems value="#{virementBean.devises}" />
+			</h:selectOneMenu>
+			
+		</h:panelGrid>
+	</h:form>
+                	
+                		<h:dataTable value="#{virementBean.lv}" var="c" border="1">
+		<f:facet name="header">ALL Comptes</f:facet>
+		<h:column>
+			<f:facet name="header">#</f:facet>
+			<h:outputText value="#{c.id}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">FromRip</f:facet>
+			<h:outputText value="#{c.fromCompteRib}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">ToRip</f:facet>
+			<h:outputText value="#{c.toCompteRib}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Montant</f:facet>
+			<h:outputText value="#{c.solde}" />
+		</h:column>
+		</h:dataTable>
+		<h:form>
+			<h:commandButton value="Imprimer Transaction" action="#{virementBean.doImprim()}" />
+  	</h:form>
+
+</ui:composition>

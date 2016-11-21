@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="banque">
+		<jta-data-source>java:/ErpBanqueDS</jta-data-source>
+		<class>domain.Administrateur</class>
+		<class>domain.AgentBancaire</class>
+		<class>domain.Budgetisation</class>
+		<class>domain.Client</class>
+		<class>domain.Compte</class>
+		<class>domain.CompteBusiness</class>
+		<class>domain.CompteCourant</class>
+		<class>domain.CompteEpargne</class>
+		<class>domain.CompteMineur</class>
+		<class>domain.Credit</class>
+		<class>domain.Materiels</class>
+		<class>domain.Reclamation</class>
+		<class>domain.TauxDeChange</class>
+		<class>domain.Utilisateur</class>
+		<class>domain.Virement</class>
+		
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+		</properties>
+	</persistence-unit>
+</persistence>

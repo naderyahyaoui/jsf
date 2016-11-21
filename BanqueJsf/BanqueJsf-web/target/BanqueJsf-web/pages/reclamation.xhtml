@@ -1,0 +1,144 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template/index.xhtml">
+<ui:define name="pageContent">
+<h:head></h:head> 
+<body>
+<h:form id="master">
+<p:dataTable rendered="#{not empty gestionReclamation.reclamations}" value="#{gestionReclamation.reclamations}" 
+var="rec" border="5" >
+<p:column>
+<h:outputText value="#{rec.titulaire}"></h:outputText>
+<f:facet name="header">
+<h:outputText value="titulaire"></h:outputText>
+</f:facet>
+</p:column>
+<p:column>
+<h:outputText value="#{rec.compte}"></h:outputText>
+<f:facet name="header">
+<h:outputText value="compte"></h:outputText>
+</f:facet>
+
+</p:column>
+
+<p:column>
+<h:outputText value="#{rec.mail}"></h:outputText>
+<f:facet name="header">
+<h:outputText value="mail"></h:outputText>
+</f:facet>
+
+</p:column>
+<p:column>
+<h:outputText value="#{rec.titre}"></h:outputText>
+<f:facet name="header">
+<h:outputText value="titre"></h:outputText>
+</f:facet>
+
+</p:column>
+
+<p:column>
+<h:outputText value="#{rec.description}"></h:outputText>
+<f:facet name="header">
+<h:outputText value="description"></h:outputText>
+</f:facet>
+
+</p:column>
+
+<p:column>
+<h:commandButton value="Select" action="#{gestionReclamation.updateReclamation()}">
+<f:setPropertyActionListener value="#{rec}" target="#{gestionReclamation.reclamation}"></f:setPropertyActionListener>
+</h:commandButton>
+</p:column>
+
+<p:column>
+<h:commandButton value="delete" action="#{gestionReclamation.deleteReclamationByReclamation(rec)}">
+</h:commandButton>
+</p:column>
+</p:dataTable>
+</h:form>
+<br/>
+<p:panel id="details">
+<h:form >
+<p:commandButton actionListener="#{gestionReclamation.createReclamation}" value="save" update=":master :details"/>
+<h:commandButton action="#{gestionReclamation.createReclamation()}"  value="Ajouter" />
+
+<p:panelGrid columns="3">
+<h:outputText value="Titulaire"></h:outputText>
+<p:inputText id="titulaire" value="#{gestionReclamation.reclamation.titulaire}" required="true" requiredMessage="Champ Obligatoire">
+<f:ajax event="blur" render="mtitulaure"></f:ajax>
+</p:inputText>
+<h:message for="titulaire" id="mtitulaire"/>
+<h:outputText value="compte"></h:outputText>
+<p:inputText id="compte" value="#{gestionReclamation.reclamation.compte}" required="true" requiredMessage="Champ Obligatoire">
+<f:ajax event="blur" render="mcompte"></f:ajax>
+</p:inputText>
+<h:message for="compte" id="mcompte"/>
+
+<h:outputText value="mail"></h:outputText>
+<p:inputText id="mail" value="#{gestionReclamation.reclamation.mail}" required="true" requiredMessage="Champ Obligatoire">
+<f:ajax event="blur" render="mmail"></f:ajax>
+</p:inputText>
+<h:message for="mail" id="mmail"/>
+
+<h:outputText value="sujet"></h:outputText>
+<p:inputText id="sujet" value="#{gestionReclamation.reclamation.titre}" required="true" requiredMessage="Champ Obligatoire">
+<f:ajax event="blur" render="msujet"></f:ajax>
+</p:inputText>
+<h:message for="sujet" id="msujet"/>
+
+<h:outputText value="description"></h:outputText>
+<p:inputText id="description" value="#{gestionReclamation.reclamation.description}" required="true" requiredMessage="Champ Obligatoire">
+<f:ajax event="blur" render="msujet"></f:ajax>
+</p:inputText>
+<h:message for="description" id="mdescription"/>
+</p:panelGrid>
+<h:commandButton action="#{gestionReclamation.updateReclamation()}" value="update" />
+<h:commandButton action="#{gestionReclamation.deleteReclamation()}" value="delete" />
+<h:commandButton action="#{gestionReclamation.viderChamps()}" value="vider" />
+
+</h:form>
+</p:panel>
+<h:form>
+<h:panelGrid columns="2">
+<h:outputText value="numero"></h:outputText>
+<h:inputText value="#{envoiSms.number}"></h:inputText>
+<h:outputText  value="message"></h:outputText>
+<h:inputText value="#{envoiSms.message}"></h:inputText>
+</h:panelGrid>
+<h:commandButton action="#{envoiSms.sms()}" value="sms" />
+</h:form>
+
+
+ <h:form>
+            <h:panelGrid columns="2">
+                
+               
+                Subject:
+                <h:panelGroup>
+                    <h:inputText class="form-control" size="30" id="subject"
+                                 value="#{envoiMailBean.subject}"
+                                 required="true"
+                                 requiredMessage="Required"/>
+                    <h:message for="subject" style="color:red"/>
+                </h:panelGroup>
+                
+                Message:
+                <h:panelGroup>
+                    <h:inputTextarea class="form-control" rows="15"  id="message"
+                                     value="#{envoiMailBean.message}"
+                                     required="true"
+                                     requiredMessage="Required"/>
+                    <h:message for="message" style="color:red"/>
+                </h:panelGroup>
+                
+                <h:commandButton class="btn btn-default" value="Send" action="#{envoiMailBean.send(gestionReclamation.reclamation.mail)}"/>
+                <h:outputText value="#{envoiMailBean.statusMessage}" style="color:red"/>
+                
+            </h:panelGrid>
+        </h:form>
+</body> 
+</ui:define>
+</ui:composition>

@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+
+	<p:panel id="credit" >
+	<h1>Tous les credits</h1>
+		<h:form id="details_form" >
+			<h:panelGrid columns="3">
+
+				<h:panelGrid columns="2">
+					<h:outputText value="debit" />
+					<p:inputText value="#{creditBean.credit.debitEnMois}" />
+
+
+
+
+
+					<h:outputText value="duree" />
+					<p:inputText value="#{creditBean.credit.dureeEnMois}" />
+
+					<h:outputText value="renvenu" />
+					<p:inputText value="#{creditBean.credit.revenuMensuelNet}" />
+
+					<h:outputText value="type" />
+					<p:inputText value="#{creditBean.credit.type}" />
+
+					<h:outputText value="libelle" />
+					<p:inputText value="#{creditBean.credit.libelle}" />
+
+					<h:outputText value="montant" />
+					<p:inputText value="#{creditBean.credit.montantSouhaite}" />
+					<h:outputText value="taux" />
+					<p:inputText value="#{creditBean.credit.tauxInteret}" />
+
+
+
+					<p:commandButton actionListener="#{creditBean.doCancel()}"
+						value="cancel" />
+
+					
+					<p:commandButton actionListener="#{creditBean.doSave()}"
+					update=":credit :master"
+						value="save" />
+						
+
+
+				</h:panelGrid>
+
+			</h:panelGrid>
+		</h:form>
+	</p:panel>
+
+</ui:composition>

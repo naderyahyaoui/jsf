@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+     <title>All Safe Bank : Home</title>
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+
+    <link rel="shortcut icon" type="image/png" href="#{request.contextPath}/template/img/favicon.png"/>
+    
+
+    <!-- CSS
+    
+    ================================================== --> 
+    <link href="#{request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" />
+<link href="#{request.contextPath}/resources/css/nprogress.css" rel="stylesheet" />
+<link href="#{request.contextPath}/resources/css/normalize.css" rel="stylesheet" />
+<!-- 	<link href="assets/t2/fonts/css/font-awesome.min.css" rel="stylesheet" /> -->
+	<link href="#{request.contextPath}/resources/css/animate.min.css" rel="stylesheet" />      
+    <!-- Bootstrap css file-->
+    <link href="#{request.contextPath}/template/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <link href="#{request.contextPath}/template/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="#{request.contextPath}/template/css/superslides.css"/>
+
+    <link href="#{request.contextPath}/template/css/slick.css" rel="stylesheet"/> 
+ 
+    <link rel="stylesheet" href="#{request.contextPath}/template/css/animate.css"/>  
+  
+    <link rel="stylesheet" href="#{request.contextPath}/template/css/elastic_grid.css"/> 
+
+    <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'/>    
+
+    <link id="orginal" href="#{request.contextPath}/template/css/themes/default-theme.css" rel="stylesheet"/>
+   
+    <link href="#{request.contextPath}/template/style.css" rel="stylesheet"/>
+   
+  
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'/>
+
+
+  </h:head>
+  <h:body> 
+     <!-- BEGAIN PRELOADER -->
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    <!-- END PRELOADER -->
+
+    <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+    <!-- END SCROLL TOP BUTTON -->
+
+    <!--=========== BEGIN HEADER SECTION ================-->
+    <header id="header">
+      <!-- BEGIN MENU -->
+      <div class="menu_area">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> 
+          <div class="container">
+          <div class="navbar-header">
+            <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <!-- LOGO -->
+
+            <!-- TEXT BASED LOGO -->
+            <a class="navbar-brand" href="#">All<span>Safe</span></a>
+            <a class="navbar-brand11" href="#"> <h:form >
+              <h:link value="Logout"  outcome="#{authBean.doLogout()}" style="#{patient.changeColor eq true ? 'color:White' : 'color:White'}"/>
+              </h:form></a>
+            <!-- IMG BASED LOGO  -->
+            <!--  <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> --> 
+            
+                   
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#Statistiques">Statistiques</a></li>
+              <li><a href="#sms">Send SMS</a></li> 
+              <li><a href="#mail">Send Mail</a></li> 
+              <li><a href="#Credit">Credit</a></li> 
+              <li><a href="#Transaction">Reclamation</a></li> 
+              <li><a href="#Sponsor">Sponsoring</a></li> 
+              <li><a href="#Stock">Stock</a></li>   
+              <li><a href="#blog">Chat</a></li>               
+              <li><a href="#contact">Map</a></li> 
+                              
+            </ul>           
+          </div><!--/.nav-collapse -->
+          </div>     
+        </nav>  
+      </div>
+      <!-- END MENU -->
+
+      <!-- BEGIN SLIDER AREA-->
+      <div class="slider_area">
+        <!-- BEGIN SLIDER-->          
+        <div id="slides">
+          <ul class="slides-container">
+
+            <!-- THE FIRST SLIDE-->
+            <li>
+              <!-- FIRST SLIDE OVERLAY -->
+              <div class="slider_overlay"></div> 
+              <!-- FIRST SLIDE MAIN IMAGE -->
+              <img src="#{request.contextPath}/template/img/full-slider/full-slide1.jpg" alt="img"/>
+              
+              <div class="slider_caption">
+                <h2>We provide personal and small business</h2>
+                <p>Manage your checking, savings, deposit, credit card and mortgage accounts</p>
+                <a href="#" class="slider_btn">Who We are</a>  
+                          
+              </div>
+            </li>
+
+            <!-- THE SECOND SLIDE-->
+            <li>
+              <!-- SECOND SLIDE OVERLAY -->
+              <div class="slider_overlay"></div> 
+              <!-- SECOND SLIDE MAIN IMAGE -->
+              <img src="#{request.contextPath}/template/img/full-slider/full-slide3.jpg" alt="img"/>
+        
+              <div class="slider_caption">
+                <h2>Together we achieve Better monet habits</h2>
+                <p>Get more rewards with your everyday banking</p>
+                <a href="#" class="slider_btn">Who We are</a>
+              </div>
+            </li>
+
+            <!-- THE THIRD SLIDE-->
+            <li>
+              <!-- THIRD SLIDE OVERLAY -->
+              <div class="slider_overlay"></div> 
+              <!-- THIRD SLIDE MAIN IMAGE -->
+              <img src="#{request.contextPath}/template/img/full-slider/full-slide5.jpg" alt="img"/>
+        
+              <div class="slider_caption">
+                <h2>we'll change your Idea of Banking Systems</h2>
+                <p> Welcome To AllSafe Bank</p>
+                <a href="#" class="slider_btn">Who We are</a>                 
+              </div>
+            </li>
+          </ul>
+          <!-- BEGAIN SLIDER NAVIGATION -->
+          <nav class="slides-navigation">
+            <!-- PREV IN THE SLIDE -->
+            <a class="prev" href="/item1">
+              <span class="icon-wrap"></span>
+              <h3><strong>Prev</strong></h3>
+            </a>
+            <!-- NEXT IN THE SLIDE -->
+            <a class="next" href="/item3">
+              <span class="icon-wrap"></span>
+              <h3><strong>Next</strong></h3>
+            </a>
+          </nav>       
+        </div>
+        <!-- END SLIDER-->          
+      </div>
+      <!-- END SLIDER AREA -->
+    </header>
+    <!--=========== End HEADER SECTION ================--> 
+
+
+    <!--=========== BEGIN ABOUT SECTION ================-->
+    <section id="Statistiques">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="about_area">
+               <ui:insert name="pageContent" /> 
+              <div class="heading">
+                <h2 class="wow fadeInLeftBig">Statistiques</h2>
+     
+              </div>
+
+              <!-- START ABOUT CONTENT -->
+              <div class="about_content">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="about_featured">
+                      <div class="panel-group" id="accordion">
+                      
+                     
+
+<script src="#{request.contextPath}/resources/js/echart/echarts-all.js" />
+	<script src="#{request.contextPath}/resources/js/echart/green.js" />
+<script src="../../resources/js/nprogress.js"></script>
+	
+	<script src="#{request.contextPath}/resources/js/jquery.min.js" />
+	<script src="#{request.contextPath}/resources/js/jquery.validate.js" />
+	<script src="#{request.contextPath}/resources/js/jquery.validate.min.js" />
+	<script src="#{request.contextPath}/resources/js/jquery.validate.unobtrusive.js" />
+	<script src="#{request.contextPath}/resources/js/jquery.validate.unobtrusive.min.js" />
+	<script src="#{request.contextPath}/resources/js/jquery.validate-vsdoc.js" />
+	<script src="#{request.contextPath}/resources/js/jquery-1.10.2.intellisense.js" />
+	<script src="#{request.contextPath}/resources/js/jquery-1.10.2.js" />
+	<script src="#{request.contextPath}/resources/js/jquery-1.10.2.min.js" />
+	
+	
+		
+<!-- 	<link rel="stylesheet" type="text/css" href="../../resources/css/maps/jquery-jvectormap-2.0.1.css" /> -->
+<!-- 	<link href="../../resources/css/icheck/flat/green.css" rel="stylesheet" /> -->
+<!-- 	<link href="../../resources/css/floatexamples.css" rel="stylesheet" -->
+
+
+<!-- 		type="text/css" /> -->
+	
+
+	<script>
+		NProgress.start();
+	</script>
+
+	
+<div class="count">#{ChartBean.percentageMontantCredit.get("credits")}</div>
+
+<div class="content">
+
+						<div id="echart_pie1" style="height: 350px;"></div>
+						
+</div>
+
+	<script>
+            // Shares Types Pie Chart
+
+            var myChart = echarts.init(document.getElementById('echart_pie1'), theme);
+            myChart.setOption({
+                tooltip: {
+                    trigger: 'credit',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    //orient: 'vertical',
+                    //x: 'left',
+                    x: 'center',
+                    y: 'bottom',
+                    data: ["credit entre 1000 et 3000", "credit entre 4000 et 6000"]
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        magicType: {
+                            show: true,
+                            type: ['pie', 'funnel'],
+                            option: {
+                                funnel: {
+                                    x: '25%',
+                                    width: '50%',
+                                    funnelAlign: 'left',
+                                    max: 1548
+                                }
+                            }
+                        },
+                        restore: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                calculable: false,
+                series: [
+                    {
+                        name: 'credit',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '48%'], //left,top
+                        data: [
+                            {
+                                value: #{chartBean.percentageMontantCredit.get("a1")},
+                                name: 'credit entre 1000 et 3000'
+                            },
+                            {
+                                value: #{chartBean.percentageMontantCredit.get("a2")},
+                                name: 'credit entre 4000 et 6000'
+                            }
+                            
+                        ]
+                    }
+                ]
+            });
+
+
+            var dataStyle = {
+                normal: {
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                }
+            };
+            var placeHolderStyle = {
+                normal: {
+                    color: 'rgba(0,0,0,0)',
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                emphasis: {
+                    color: 'rgba(0,0,0,0)'
+                }
+            };
+        </script>
+        <script>
+		NProgress.done();
+	</script>
+
+                      
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-12">
+          
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>       
+      </div>
+       <!-- BEGAIN SKILLS  -->
+
+        <!-- END SKILLS  -->
+    </section>
+    <!--=========== END ABOUT SECTION ================-->
+
+    <!--=========== BEGIN SERVICE SECTION ================-->
+    <section id="sms">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <!-- BEGAIN SERVICE HEADING -->
+            <div class="heading">
+              <h2 class="wow fadeInLeftBig">Send SMS</h2>
+             
+            </div>
+          </div>          
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <!-- BEGAIN SERVICE  -->
+            <div class="service_area">
+              <div class="row">
+<h:form>
+<h:panelGrid columns="2">
+<h:outputText value="numero"></h:outputText>
+<h:inputText value="#{envoiSms.number}"></h:inputText>
+<h:outputText  value="message"></h:outputText>
+<h:inputText value="#{envoiSms.message}"></h:inputText>
+</h:panelGrid>
+<h:commandButton action="#{envoiSms.sms()}" value="sms" />
+</h:form>
+        </div>
+      </div>
+       </div>
+      </div>
+      </div>
+    </section>
+    <!--=========== END SERVICE SECTION ================-->
+
+    <!--=========== BEGAIN WORKS SECTION ================-->
+    <section id="mail">
+
+      <!-- END MILESTONE WORSK SECTION -->
+
+      <!-- BEGAIN FORTFOLIO WORSK SECTION -->
+      <div class="row">
+        <div class="portfolio_area">
+          <!-- BEGAIN PORTFOLIO HEADER -->
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+             <div class="container">
+                <div class="heading">
+                  <h2 class="wow fadeInLeftBig">Mail</h2>
+                           <h:form>
+            <h:panelGrid columns="2">
+                 Email:
+                <h:panelGroup>
+                    <h:inputText class="form-control" size="30" id="mail"
+                                 value="#{envoiMailBean.emailFormulaire}"
+                                 required="true"
+                                 requiredMessage="Required"/>
+                    <h:message for="subject" style="color:red"/>
+                </h:panelGroup>
+               
+                Subject:
+                <h:panelGroup>
+                    <h:inputText class="form-control" size="30" id="subject"
+                                 value="#{envoiMailBean.subject}"
+                                 required="true"
+                                 requiredMessage="Required"/>
+                    <h:message for="subject" style="color:red"/>
+                </h:panelGroup>
+                
+                Message:
+                <h:panelGroup>
+                    <h:inputTextarea class="form-control" rows="15"  id="message"
+                                     value="#{envoiMailBean.message}"
+                                     required="true"
+                                     requiredMessage="Required"/>
+                    <h:message for="message" style="color:red"/>
+                </h:panelGroup>
+                
+                <h:commandButton class="btn btn-default" value="Send" action="#{envoiMailBean.send(envoiMailBean.emailFormulaire)}"/>
+                <h:outputText value="#{envoiMailBean.statusMessage}" style="color:red"/>
+                
+            </h:panelGrid>
+        </h:form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END PORTFOLIO HEADER -->
+
+          <!-- BEGAIN PORTFOLIO GALLERY -->
+          <div class="row">
+
+          </div>
+          <!-- END PORTFOLIO GALLERY -->
+        </div>         
+      </div>      
+      <!-- END FORTFOLIO WORSK SECTION -->
+    </section>
+    <!--=========== END WORKS SECTION ================-->
+ 
+      
+      <section id="Transaction">
+      <!-- BEGAIN FORTFOLIO WORSK SECTION -->
+      <div class="row">
+        <div class="portfolio_area">
+          <!-- BEGAIN PORTFOLIO HEADER -->
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+             <div class="container">
+                <div class="heading">
+                  <h2 class="wow fadeInLeftBig">Reclamation</h2>
+                  <p>You can reclam here a bad service or anything related to our bank</p>
+                <h:form>
+<p:dataTable rendered="#{not empty gestionReclamation.reclamations}" value="#{gestionReclamation.reclamations}" 
+var="recl" border="5" >
+<p:column>
+<h:outputText value="#{recl.titulaire}"></h:outputText>
+<f:facet name="header">
+<h:outputText value="titulaire"></h:outputText>
+</f:facet>
+</p:column>
+<p:column>
+<h:outputText value="#{recl.compte}"></h:outputText>
+<f:facet name="header">
+<h:outputText value="compte"></h:outputText>
+</f:facet>
+
+</p:column>
+
+<p:column>
+<h:outputText value="#{recl.mail}"></h:outputText>
+<f:facet name="header">
+<h:outputText value="mail"></h:outputText>
+</f:facet>
+
+</p:column>
+<p:column>
+<h:outputText value="#{recl.titre}"></h:outputText>
+<f:facet name="header">
+<h:outputText value="titre"></h:outputText>
+</f:facet>
+
+</p:column>
+
+<p:column>
+<h:outputText value="#{recl.description}"></h:outputText>
+<f:facet name="header">
+<h:outputText value="description"></h:outputText>
+</f:facet>
+
+</p:column>
+
+
+<p:column>
+<h:commandButton value="delete" action="#{gestionReclamation.deleteReclamationByReclamation(recl)}">
+</h:commandButton>
+</p:column>
+</p:dataTable>
+</h:form>
+<br/>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END PORTFOLIO HEADER -->
+
+          <!-- BEGAIN PORTFOLIO GALLERY -->
+          <div class="row">
+            <div class="portfolio_gallery">
+              
+            </div>
+          </div>
+          <!-- END PORTFOLIO GALLERY -->
+        </div>         
+      </div>      
+      <!-- END FORTFOLIO WORSK SECTION -->
+    </section>
+    <!--=========== END WORKS SECTION ================-->
+    <!--=========== BEGAIN TEAM SECTION ================-->
+    <section id="Sponsor">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <!-- BEGAIN ABOUT HEADING -->
+            <div class="heading">
+              <h2 class="wow fadeInLeftBig">Sponsor</h2>            
+            </div>
+            <div class="team_area">
+              <!-- BEGAIN TEAM SLIDER -->
+              <div class="team_slider">  
+       	<ui:include src="/sponsor/list.xhtml" />
+		<ui:include src="/sponsor/form.xhtml" />
+                                    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=========== END TEAM SECTION ================-->
+
+    <!--=========== BEGAIN TEAM SECTION ================-->
+    <section id="Stock">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <!-- BEGAIN ABOUT HEADING -->
+            <div class="heading">
+              <h2 class="wow fadeInLeftBig">Stock</h2>            
+            </div>
+            <div class="team_area">
+              <!-- BEGAIN TEAM SLIDER -->
+              <div class="team_slider">  
+      <ui:include src="/pages/list.xhtml" />
+		<ui:include src="/pages/form.xhtml" />
+                                    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=========== END TEAM SECTION ================-->
+
+
+
+    <!--=========== BEGAIN BLOG SECTION ================-->
+    <section id="blog">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <!-- START BLOG HEADING -->
+            <div class="heading">
+              <h2 class="wow fadeInLeftBig">Chat</h2>
+              <p> </p>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12">
+            <!-- BEGAIN BLOG CONTENT -->
+            <div class="blog_content">
+
+              <!-- BEGAIN BLOG SLIDER -->
+              <div class="blog_slider">
+      <ui:include src="/pages/index.xhtml" />      
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--=========== END BLOG SECTION ================-->
+
+
+    <!--=========== BEGAIN TESTIMONIAL SECTION ================-->
+
+    <!--=========== END TESTIMONIAL SECTION ================-->
+
+
+    <!--=========== BEGAIN CLIENTS SECTION ================-->
+
+    <!--=========== END CLIENTS SECTION ================-->
+
+    <!--=========== BEGAIN CONTACT SECTION ================-->
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <!-- START CONTACT HEADING -->
+            <div class="heading">
+              <h2 class="wow fadeInLeftBig">Localisation</h2>
+              <p> </p>
+            </div>
+          </div>
+        </div>       
+        <div class="row">
+          <!-- BEGAIN CONTACT CONTENT -->
+          <div class="contact_content">
+            <!-- BEGAIN CONTACT FORM -->
+            <div class="col-lg-5 col-md-5 col-sm-5">
+          
+            </div>
+            <!-- BEGAIN CONTACT MAP -->
+           
+              <!-- BEGAIN GOOGLE MAP -->
+       <ui:include src="/pages/Map.xhtml" />
+              
+                      
+          </div>
+        </div>      
+      </div>             
+    </section>
+    <!--=========== END CONTACT SECTION ================-->
+
+    <!--=========== BEGAIN CONTACT FEATURE SECTION ================-->
+    
+    <!--=========== END CONTACT FEATURE SECTION ================-->
+
+    <!--=========== BEGAIN SUBSCRIBE SECTION ================-->
+    
+    <!--=========== END SUBSCRIBE SECTION ================-->
+
+     <!--=========== BEGAIN FOOTER ================-->
+     <footer id="footer">
+       <div class="container">
+         <div class="row">
+           <div class="col-lg-6 col-md-6 col-sm-6">
+             <div class="footer_left">
+				<!--=========== Designed By WpFreeware Team ================-->
+               <p>All <a href="#">Safe</a>.</p>
+			   <!--=========== Designed By WpFreeware Team ================-->
+             </div>
+           </div>
+           <div class="col-lg-6 col-md-6 col-sm-6">
+             <div class="footer_right">
+               <ul class="social_nav">
+                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                 <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+               </ul>
+             </div>
+           </div>
+         </div>
+       </div>
+      </footer>
+      <!--=========== END FOOTER ================-->
+
+     <!-- Javascript Files
+     ================================================== -->
+  
+     <!-- initialize jQuery Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Google map -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="#{request.contextPath}/template/js/jquery.ui.map.js"></script>
+     <!-- For smooth animatin  -->
+    <script src="#{request.contextPath}/template/js/wow.min.js"></script> 
+    <!-- Bootstrap js -->
+    <script src="#{request.contextPath}/template/js/bootstrap.min.js"></script>
+    <!-- superslides slider -->
+    <script src="#{request.contextPath}/template/js/jquery.superslides.min.js" type="text/javascript"></script>
+    <!-- slick slider -->
+    <script src="#{request.contextPath}/template/js/slick.min.js"></script>    
+    <!-- for circle counter -->
+    <script src='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/js/jquery.circliful.min.js'></script>
+    <!-- for portfolio filter gallery -->
+    <script src="#{request.contextPath}/template/js/modernizr.custom.js"></script>
+    <script src="#{request.contextPath}/template/js/classie.js"></script>
+    <script src="#{request.contextPath}/template/js/elastic_grid.min.js"></script>
+    <script src="#{request.contextPath}/template/js/portfolio_slider.js"></script>
+
+    <!-- Custom js-->
+    <script src="#{request.contextPath}/template/js/custom.js"></script>
+  </h:body>
+</html>

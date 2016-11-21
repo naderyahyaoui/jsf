@@ -1,0 +1,23 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/index.xhtml">
+
+<ui:define name="pageLogin">
+<h:head></h:head> 
+ 
+<h:form>
+
+<h:column>
+<h:outputText value="Login" style="#{patient.changeColor eq true ? 'color:White' : 'color:White'}"/><h:inputText value="#{authBean.user.login}" />
+</h:column>
+<h:column>
+<h:outputText value="Password" style="#{patient.changeColor eq true ? 'color:White' : 'color:White'}"/><h:inputSecret value="#{authBean.user.password}" />
+</h:column>
+<h:column>
+<h:commandButton action="#{authBean.doLogin()}" value="login" />
+</h:column>
+</h:form> 
+</ui:define>
+</ui:composition>

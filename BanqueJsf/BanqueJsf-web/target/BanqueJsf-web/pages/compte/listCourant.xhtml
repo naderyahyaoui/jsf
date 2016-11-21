@@ -1,0 +1,59 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/indexFinancier.xhtml">
+                <ui:define name="pageCourant">
+                	
+<h:form>
+	<h:dataTable value="#{ccptBean.listComptec}" var="c" border="1">
+		<f:facet name="header">ALL Comptes</f:facet>
+		<h:column>
+			<f:facet name="header">#</f:facet>
+			<h:outputText value="#{c.idCompte}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">rib</f:facet>
+			<h:outputText value="#{c.RIB}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">succursale</f:facet>
+			<h:outputText value="#{c.succursale}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">solde</f:facet>
+			<h:outputText value="#{c.solde}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">action</f:facet>
+						
+				<h:commandButton value="select">
+					<f:setPropertyActionListener target="#{ccptBean.formDisplayed}"
+						value="true" />
+					<f:setPropertyActionListener target="#{ccptBean.cpt}"
+						value="#{c}" />
+
+				</h:commandButton>
+			
+		</h:column>
+	</h:dataTable>
+  		</h:form>
+		
+
+	<h:form rendered="#{ccptBean.formDisplayed}">
+		<h:panelGrid columns="2">
+			<h:outputText value="succursale" />
+			<h:inputText value="#{ccptBean.cpt.succursale}" />
+			<h:outputText value="RIB" />
+			<h:inputText value="#{ccptBean.cpt.RIB}" />
+			<h:commandButton value="cancel" action="#{ccptBean.doCancel()}" />
+			<h:panelGrid columns="2">
+				<h:commandButton value="remove"
+					action="#{ccptBean.doRemove()}" />
+				<h:commandButton value="save"
+					action="#{ccptBean.doSaveOrUpdate()}" />
+			</h:panelGrid>
+		</h:panelGrid>
+	</h:form>
+	</ui:define>
+</ui:composition>

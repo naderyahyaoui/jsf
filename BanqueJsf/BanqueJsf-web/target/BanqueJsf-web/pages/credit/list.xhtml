@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+
+	<h:form id="master">
+		<p:dataTable value="#{creditBean.credits}" var="c" border="1"
+			emptyMessage="no credits found!" paginator="true"
+			paginatorPosition="bottom" selectionMode="single"
+			selection="#{creditBean.credit}" rowKey="#{c.idCredit}">
+			<p:ajax event="rowSelect" listener="#{creditBean.onRowSelect()}"
+			update="credit"
+				 />
+			<f:facet name="header">All credits</f:facet>
+
+			<p:column>
+				<f:facet name="header">Debit</f:facet>
+				<h:outputText value="#{c.debitEnMois}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Duree</f:facet>
+				<h:outputText value="#{c.dureeEnMois}" />
+			</p:column>
+
+              <p:column>
+				<f:facet name="header">Revenu</f:facet>
+				<h:outputText value="#{c.revenuMensuelNet}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">type</f:facet>
+				<h:outputText value="#{c.type}" />
+			</p:column>
+
+           <p:column>
+				<f:facet name="header">libelle</f:facet>
+				<h:outputText value="#{c.libelle}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">Montant</f:facet>
+				<h:outputText value="#{c.montantSouhaite}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">taux</f:facet>
+				<h:outputText value="#{c.tauxInteret}" />
+			</p:column>
+			<p:column>
+				<f:facet name="header">Action</f:facet>
+				<h:commandButton value="Delete" actionListener="#{creditBean.doDelete(c)}" />
+				
+				
+				
+				
+				
+			</p:column>
+		</p:dataTable>
+
+<h:commandButton value="New" action="#{creditBean.doNew()}"  /> 
+<h:commandButton value="Transaction" action="#{creditBean.doPay()}" update=":payment" /> 
+
+
+	</h:form>
+</ui:composition>
